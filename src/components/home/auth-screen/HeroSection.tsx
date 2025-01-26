@@ -42,6 +42,7 @@ const HeroSection = () => {
           src={"/horse-6.png"}
           alt="horse image"
           fill
+          sizes='100%'
           className='opacity-90 pointer-events-none select-none h-full'
         />
       </div>
