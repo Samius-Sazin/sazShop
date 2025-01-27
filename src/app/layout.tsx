@@ -1,35 +1,30 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+
 import "./globals.css";
+import Footer from "@/components/Footer";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
 
 export const metadata: Metadata = {
-  title: "sazshop",
-  description: "e-commerce",
+  title: "sazShop",
+  description: "sazshop e-commerce",
 };
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode; }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`} >
+      <body>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
+
+          {/* <Navbar /> */}
           {children}
+          <Footer />
+
         </ThemeProvider>
       </body>
     </html>

@@ -5,6 +5,10 @@ import UnderlineText from '@/components/decorators/UnderlineText'
 import TodaysHighlight from './TodaysHighlight'
 import RotatedText from '@/components/decorators/RotatedText'
 import MasonryGrid from './MasonryGrid'
+import Features from './Features'
+import Testimonials from './Testimonials'
+import Pricing from '@/components/Pricing'
+import Team from './Team'
 
 
 const AuthScreen = () => {
@@ -19,10 +23,11 @@ const AuthScreen = () => {
                         <span className='text-2xl md:text-4xl ml-1'>👇</span>
                     </p>
 
-                    {/* video area */}
-                    <div className='flex flex-col gap-10 mt-10'>
+                    <div className='flex flex-col items-center gap-10 mt-10'>
+                        {/* video area */}
                         <TodaysHighlight />
 
+                        {/* image show case */}
                         <div className='mt-24'>
                             <p className='text-2xl md:text-5xl text-center tracking-tight font-bold'>
                                 Here's <RotatedText>our farm</RotatedText>
@@ -30,6 +35,20 @@ const AuthScreen = () => {
 
                             <MasonryGrid />
                         </div>
+
+                        {/* featured area/gif area */}
+                        <Features />
+
+                        {/* testimonials */}
+                        <div className='w-[95%]'>
+                            <Testimonials />
+                        </div>
+
+                        {/* pricing area */}
+                        <Pricing />
+
+                        {/* team are */}
+                        <Team />
                     </div>
                 </div>
             </div>

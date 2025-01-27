@@ -37,7 +37,7 @@ const HeroSection = () => {
       </div>
 
       {/* right side */}
-      <div className='flex-1 relative overflow-hidden hidden md:flex items-center justify-center'>
+      <div className='flex-1 relative overflow-hidden hidden lg:flex items-center justify-center'>
         <Image
           src={"/horse-6.png"}
           alt="horse image"
