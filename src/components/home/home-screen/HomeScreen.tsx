@@ -1,6 +1,6 @@
-import BaseLayout from "@/components/BaseLayout";
-import UserProfile from "./UserProfile";
 import Posts from "./Posts";
+import UserProfile from "./UserProfile";
+import BaseLayout from "@/components/BaseLayout";
 
 
 const HomeScreen = () => {

@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import Sidebar from "./Sidebar";
+import SuggestedProducts from "./SuggestedProducts";
 
 
 const BaseLayout = async ({
@@ -18,18 +19,20 @@ const BaseLayout = async ({
     }
 
     return (
-        <div className="flex justify-between max-w-2xl lg:max-w-7xl mx-auto relative">
-            <Sidebar />
+        <div className="flex justify-between max-w-2xl lg:max-w-[80%] mx-auto relative">
+            <div className="w-[10%]">
+                <Sidebar />
+            </div>
 
-            <div className="w-full flex flex-col border-r">
+            <div className="w-full lg:w-[50%] flex flex-col border-x">
                 {children}
             </div>
 
-            <div className="">
+            <div className="w-[30%]">
                 {
                     renderRightPanel
                     &&
-                    "Suggested Products"
+                    <SuggestedProducts />
                 }
             </div>
         </div>

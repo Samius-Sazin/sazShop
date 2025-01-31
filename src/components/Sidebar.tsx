@@ -33,7 +33,7 @@ const Sidebar = () => {
     const isAdmin = false;
 
     return (
-        <div className='flex flex-col items-center lg:items-start gap-6 px-2 lg:w-1/5 border-r sticky left-0 top-0 h-screen'>
+        <div className='flex flex-col items-center lg:items-start gap-6 px-2 sticky left-0 top-0 h-screen'>
             <Link href={`/update-profile`} className='max-w-fit'>
                 <Avatar className='mt-4 cursor-pointer'>
                     <AvatarImage src={user.image || `/user-placeholder.png`} className='object-cover' alt="user profile" />
