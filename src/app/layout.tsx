@@ -21,9 +21,13 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           disableTransitionOnChange
         >
 
-          {/* <Navbar /> */}
-          {children}
-          <Footer />
+          <div className="h-[100dvh] flex flex-col">
+            <div className="flex-1">
+              {children}
+            </div>
+
+            <Footer />
+          </div>
 
         </ThemeProvider>
       </body>

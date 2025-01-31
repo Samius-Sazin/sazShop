@@ -87,3 +87,11 @@ body {
 .bg-noise {
   background-image: url("/noise.svg");
 }
+
+.bg-of {
+  background-image: url("/of-logo.svg");
+  background-repeat: no-repeat;
+  background-position-y: 100px;
+  background-position-x: -100px;
+  background-size: 60%;
+}
