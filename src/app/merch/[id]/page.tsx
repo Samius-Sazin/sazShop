@@ -5,7 +5,7 @@ import { products } from '@/dummy_data'
 import React from 'react'
 import ProductCheckout from './ProductCheckout'
 
-const page = () => {
+const Page = () => {
     return (
         <BaseLayout renderRightPanel={false}>
             <div className='px-3 md:px-7 my-20'>
@@ -28,4 +28,4 @@ const page = () => {
     )
 }
 
-export default page
+export default Page

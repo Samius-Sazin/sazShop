@@ -54,7 +54,7 @@ const Sidebar = () => {
                 {
                     isAdmin
                     &&
-                    <Link href={`sazshop-admin-dashboard`} className={NAVBAR_STYLES}>
+                    <Link href={`admin-dashboard`} className={NAVBAR_STYLES}>
                         <LayoutDashboard className='w-6 h-6' />
                         <span className='hidden lg:block'>Dashboard</span>
                     </Link>
