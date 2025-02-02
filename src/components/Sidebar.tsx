@@ -30,7 +30,7 @@ const SIDEBAR_LINKS = [
 ];
 
 const Sidebar = () => {
-    const isAdmin = false;
+    const isAdmin = true;
 
     return (
         <div className='flex flex-col items-center lg:items-start gap-6 px-2 sticky left-0 top-0 h-screen'>
@@ -56,7 +56,7 @@ const Sidebar = () => {
                     &&
                     <Link href={`sazshop-admin-dashboard`} className={NAVBAR_STYLES}>
                         <LayoutDashboard className='w-6 h-6' />
-                        <span className='hidden lg:block'>Admin Dashboard</span>
+                        <span className='hidden lg:block'>Dashboard</span>
                     </Link>
                 }
 
