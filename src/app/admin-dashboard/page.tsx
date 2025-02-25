@@ -4,6 +4,7 @@ import ContantTab from './content/ContantTab'
 
 import BaseLayout from '@/components/BaseLayout'
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import AnalyticsTab from './analytics/AnalyticsTab'
 
 
 const Page = () => {
@@ -24,7 +25,9 @@ const Page = () => {
           <StoreTab />
         </TabsContent>
 
-        <TabsContent value="analytics">Analytics</TabsContent>
+        <TabsContent value="analytics">
+          <AnalyticsTab />
+        </TabsContent>
       </Tabs>
 
     </BaseLayout>
