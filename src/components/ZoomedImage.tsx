@@ -22,6 +22,7 @@ const ZoomedImage = ({ className, imgSrc }: { className?: string, imgSrc: string
                 src={imgSrc}
                 alt="product image"
                 fill
+                sizes="(max-height: 392px) 100vw, 33vw"
                 style={{
                     transformOrigin: `${mousePosition.x}% ${mousePosition.y}%`,
                 }}

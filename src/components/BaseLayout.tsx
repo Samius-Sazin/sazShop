@@ -1,5 +1,5 @@
 import { ReactNode } from "react"
-import { redirect } from "next/navigation";
+// import { redirect } from "next/navigation";
 
 import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server"
 import Sidebar from "./Sidebar";

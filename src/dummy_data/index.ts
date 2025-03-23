@@ -2,14 +2,14 @@ export const admin = {
 	id: 1,
 	name: "Admin",
 	email: "admin@gmail.com",
-	image: "https://avatar.iran.liara.run/public/boy?username=bob",
+	image: "https://www.w3schools.com/howto/img_avatar.png",
 };
 
 export const user = {
 	id: 123,
 	email: "user@gmail.com",
 	name: "John Doe",
-	image: "https://avatar.iran.liara.run/public/boy?username=john",
+	image: "https://www.w3schools.com/howto/img_avatar.png",
 	isSubscribed: false,
 	createdAt: Date.now(),
 	updatedAt: Date.now(),

@@ -1,7 +1,25 @@
+"use client"
+import { useQuery } from '@tanstack/react-query'
 import { Loader } from 'lucide-react'
-import React from 'react'
+import React, { useEffect } from 'react'
+import { checkAuthStatus } from './actions';
+import { useRouter } from 'next/navigation';
 
 const page = () => {
+    
+    const router = useRouter();
+    const { data } = useQuery({
+        queryKey: ["authCheck"],
+        queryFn: async () => await checkAuthStatus(),
+    });
+
+    useEffect(() => {
+        if (data?.success === true || data?.success === false) {
+            // window.location.href = "/";
+            router.push("/");
+        }
+    }, [data, router])
+    
     return (
         <div className='mt-20 w-full flex justify-center'>
             <div className='flex flex-col items-center gap-2'>

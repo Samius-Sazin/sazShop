@@ -55,7 +55,13 @@ const Post = ({ post, admin, isSubscribed }: { post: any, admin: any, isSubscrib
         &&
         (
           <div className='relative w-full pb-[56.25%] rounded-lg overflow-hidden'>
-            <Image src={post.mediaUrl} alt='Post Image' className='rounded-lg object-cover' fill />
+            <Image
+              src={post.mediaUrl}
+              alt='Post Image'
+              className='rounded-lg object-cover'
+              fill
+              sizes="(max-width: 768px) 100vw, 33vw"
+            />
           </div>
         )
       }

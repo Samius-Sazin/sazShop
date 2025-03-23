@@ -8,6 +8,8 @@ const CoverImage = () => {
                 src={`/featured/featured10.jpg`}
                 alt={`Horse Cover Image`}
                 className='h-full w-full object-cover select-none pointer-events-none'
+                sizes="(max-width: 168px) 100vw, 33vw"
+                priority={true}
                 fill
             />
 
@@ -21,19 +23,19 @@ const CoverImage = () => {
                             <div className='flex items-center gap-1'>
                                 <ImageIcon className='w-4 h-4' />
                                 <span className='text-sm font-bold'>{10}</span>
-							</div>
+                            </div>
 
-							<span className='text-xs'>•</span>
-							<div className='flex items-center gap-1'>
-								<Video className='w-4 h-4' />
-								<span className='text-sm font-bold'>{10}</span>
-							</div>
+                            <span className='text-xs'>•</span>
+                            <div className='flex items-center gap-1'>
+                                <Video className='w-4 h-4' />
+                                <span className='text-sm font-bold'>{10}</span>
+                            </div>
 
-							<span className='text-xs'>•</span>
-							<div className='flex items-center gap-1'>
-								<Heart className='w-4 h-4' />
-								<span className='text-sm font-bold'>{10}</span>
-							</div>
+                            <span className='text-xs'>•</span>
+                            <div className='flex items-center gap-1'>
+                                <Heart className='w-4 h-4' />
+                                <span className='text-sm font-bold'>{10}</span>
+                            </div>
                         </div>
                     </div>
                 </div>
