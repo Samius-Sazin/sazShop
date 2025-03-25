@@ -24,11 +24,11 @@ const BaseLayout = async ({
                 <Sidebar />
             </div>
 
-            <div className="w-full lg:w-[50%] flex flex-col border-x">
+            <div className="w-full lg:w-[45%] flex flex-col border-x">
                 {children}
             </div>
 
-            <div className="w-[30%]">
+            <div className="w-[35%]">
                 {
                     renderRightPanel
                     &&

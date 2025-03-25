@@ -1,12 +1,16 @@
 "use client"
+
 import Image from "next/image";
 import { useState } from "react";
-
 import { Terminal } from "lucide-react";
-import { Label } from "@/components/ui/label"
+
+import { useToast } from "@/hooks/use-toast";
+import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
+import { useMutation } from "@tanstack/react-query";
 import { Checkbox } from "@/components/ui/checkbox";
+import { createPostAction } from "@/app/admin-dashboard/actions";
 import UnderlineText from "@/components/decorators/UnderlineText";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -19,8 +23,32 @@ import 'next-cloudinary/dist/cld-video-player.css';
 const ContantTab = () => {
     const [text, setText] = useState<string>("");
     const [mediaType, setMediaType] = useState<"video" | "image">("image");
-    const [isPublic, setIsPublic] = useState<boolean>(false);
     const [mediaUrl, setMediaUrl] = useState<string>("");
+    const [isPublic, setIsPublic] = useState<boolean>(false);
+    
+    const { toast } = useToast();
+
+    const { mutate: createPost, isPending } = useMutation({
+        mutationKey: ["createPost"],
+        mutationFn: async () => createPostAction({ text, isPublic, mediaType, mediaUrl }),
+        onSuccess: () => {
+            toast({
+                title: "Post created successsfully",
+            });
+            setText("");
+            setMediaUrl("");
+            setMediaType("image");
+            setIsPublic(false)
+        },
+        onError: (error) => {
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: error.message,
+            })
+        }
+    })
+
 
     return (
         <>
@@ -28,7 +56,10 @@ const ContantTab = () => {
                 <UnderlineText className={`decoration-wavy`}>Share</UnderlineText> Post
             </p>
 
-            <form>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                createPost();
+            }}>
                 <Card className="w-full max-w-md mx-auto">
                     <CardHeader>
                         <CardTitle>New Post</CardTitle>
@@ -75,7 +106,7 @@ const ContantTab = () => {
                             {({ open }) => {
                                 return (
                                     <Button onClick={() => open()} variant={"outline"} type="button">
-                                        Upload
+                                        Upload Media
                                     </Button>
                                 );
                             }}
@@ -128,7 +159,9 @@ const ContantTab = () => {
                         </Alert>
 
                         <CardFooter>
-                            <Button className="w-full" type="submit">Create Post</Button>
+                            <Button className="w-full" type="submit" disabled={isPending}>
+                                {isPending ? "Creating Post..." : "Create Post"}
+                            </Button>
                         </CardFooter>
                     </CardContent>
                 </Card>

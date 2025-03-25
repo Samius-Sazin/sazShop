@@ -5,9 +5,10 @@ import { DollarSign } from 'lucide-react'
 import { buttonVariants } from './ui/button'
 import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import ZoomedImage from './ZoomedImage'
+import { Product } from '@prisma/client'
 
 
-const SuggestedProduct = ({ product }: { product: any }) => {
+const SuggestedProduct = ({ product }: { product: Product }) => {
     return (
         <Card className='flex flex-col'>
             <CardHeader className='py-2 px-2 flex flex-row items-center justify-between space-y-0 pb-0'>

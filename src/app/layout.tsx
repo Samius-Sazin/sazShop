@@ -4,6 +4,7 @@ import "./globals.css";
 import Footer from "@/components/Footer";
 import TanStackProvider from "@/providers/TanStackProvider";
 import { ThemeProvider } from "@/providers/theme-provider";
+import { Toaster } from "@/components/ui/toaster";
 
 
 export const metadata: Metadata = {
@@ -33,6 +34,7 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
           </div>
 
         </ThemeProvider>
+        <Toaster />
       </body>
     </html>
   );

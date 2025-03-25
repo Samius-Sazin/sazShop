@@ -1,12 +1,23 @@
+"use client"
 
 import { X } from 'lucide-react';
 
-import { products } from '@/dummy_data';
 import ProductCard from '@/components/ProductCard';
 import ProductSkeleton from '@/components/skeletons/ProductSkeleton';
+import { useQuery } from '@tanstack/react-query';
+import { getAllProductsAction } from '../actions';
+import { useState } from 'react';
 
 const ExistingProducts = () => {
-    const isLoading = false;
+    const [isAdmin, setIsAdmin] = useState(false);
+
+    const { data: products, isLoading } = useQuery({
+        queryKey: ["getAllProducts"],
+        queryFn: async () => {
+            setIsAdmin(true);
+            return await getAllProductsAction();
+        }
+    })
 
     return (
         <>
@@ -21,7 +32,7 @@ const ExistingProducts = () => {
                 </div>
             )}
 
-            {/* in loiading conditon */}
+            {/* in loading condition */}
             {
                 isLoading
                 &&
@@ -34,11 +45,12 @@ const ExistingProducts = () => {
                 </div>
             }
 
+
             {/* showProducts */}
             <div className='grid grid-cols-1 md:grid-cols-2 gap-4'>
                 {
                     products?.map((product) => (
-                        <ProductCard adminView key={product.id} product={product} />
+                        <ProductCard key={product.id} product={product} isAdmin={isAdmin} />
                     ))
                 }
             </div>

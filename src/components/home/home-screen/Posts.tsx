@@ -1,17 +1,25 @@
+"use client"
+
 import Post from "./Post"
 import UnderlineText from "@/components/decorators/UnderlineText"
 import PostSkeleton from "@/components/skeletons/PostSkeleton";
-import { admin, posts, user } from "@/dummy_data";
+import { User } from "@prisma/client";
+import { useQuery } from "@tanstack/react-query";
+import { getAllPostsAction } from "@/components/home/home-screen/actions";
 
-const Posts = () => {
-    const isLoading = false;
+const Posts = ({ admin, isSubscribed }: { admin: User, isSubscribed: boolean }) => {
+
+    const { data: posts, isLoading } = useQuery({
+        queryKey: ["getAllPosts"],
+        queryFn: async () => await getAllPostsAction(),
+    })
 
     return (
         <div>
             {/* show posts */}
             {
-                !isLoading && posts.map((post, postIndex) => (
-                    <Post key={postIndex} post={post} admin={admin} isSubscribed={user.isSubscribed} />
+                !isLoading && posts?.map((post, postIndex) => (
+                    <Post key={postIndex} post={post} admin={admin} isSubscribed={isSubscribed} />
                 ))
             }
 
@@ -32,7 +40,7 @@ const Posts = () => {
 
             {/* show no post yet  */}
             {
-                !isLoading && posts.length === 0
+                !isLoading && posts?.length === 0
                 &&
                 (
                     <div className="mt-10 px-3">

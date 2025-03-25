@@ -1,4 +1,3 @@
-"use client"
 import Link from 'next/link';
 
 import {
@@ -11,7 +10,9 @@ import { DropdownMenu } from './ui/dropdown-menu';
 import { DropdownMenuContent, DropdownMenuItem, DropdownMenuLabel, DropdownMenuSeparator, DropdownMenuTrigger } from '@radix-ui/react-dropdown-menu';
 import { LogoutLink } from '@kinde-oss/kinde-auth-nextjs/components';
 import { ModeToggle } from './ModeToggler';
-import { user } from '@/dummy_data';
+import { getKindeServerSession } from '@kinde-oss/kinde-auth-nextjs/server';
+import { notFound } from 'next/navigation';
+import { prisma } from '@/db/prisma';
 
 
 const NAVBAR_STYLES = "flex w-12 lg:w-full items-center gap-2 hover:bg-primary-foreground font-bold hover:text-primary px-2 py-1 rounded-full justify-center lg:justify-normal";
@@ -29,14 +30,25 @@ const SIDEBAR_LINKS = [
     },
 ];
 
-const Sidebar = () => {
-    const isAdmin = true;
+const Sidebar = async () => {
+    const { getUser } = getKindeServerSession();
+    const kindeUser = await getUser();
+
+    if (!kindeUser) return notFound();
+
+    const isAdmin = process.env.ADMIN_EMAIL === kindeUser?.email;
+
+    const user = await prisma.user.findUnique({
+        where: {
+            id: kindeUser.id,
+        }
+    })
 
     return (
         <div className='flex flex-col items-center lg:items-start gap-6 px-2 sticky left-0 top-0 h-screen'>
             <Link href={`/update-profile`} className='max-w-fit'>
                 <Avatar className='mt-4 cursor-pointer'>
-                    <AvatarImage src={user.image || `/user-placeholder.png`} className='object-cover' alt="user profile" />
+                    <AvatarImage src={user?.image || `/user-placeholder.png`} className='object-cover' alt="user profile" />
                     <AvatarFallback>CN</AvatarFallback>
                 </Avatar>
             </Link>
@@ -54,7 +66,7 @@ const Sidebar = () => {
                 {
                     isAdmin
                     &&
-                    <Link href={`admin-dashboard`} className={NAVBAR_STYLES}>
+                    <Link href={`/admin-dashboard`} className={NAVBAR_STYLES}>
                         <LayoutDashboard className='w-6 h-6' />
                         <span className='hidden lg:block'>Dashboard</span>
                     </Link>

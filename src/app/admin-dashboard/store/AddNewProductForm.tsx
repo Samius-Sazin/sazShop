@@ -1,21 +1,46 @@
 "use client"
+import Image from 'next/image'
 import { useState } from 'react'
+import { CldUploadWidget, CloudinaryUploadWidgetInfo } from 'next-cloudinary'
 
+import { useToast } from '@/hooks/use-toast'
 import { Label } from '@/components/ui/label'
 import { Input } from '@/components/ui/input'
-import RotatedText from '@/components/decorators/RotatedText'
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
-import { CldUploadWidget, CloudinaryUploadWidgetInfo } from 'next-cloudinary'
 import { Button } from '@/components/ui/button'
-import Image from 'next/image'
+import RotatedText from '@/components/decorators/RotatedText'
+import { addProductAction } from '@/app/admin-dashboard/actions'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card'
 
 
 const AddNewProductForm = () => {
     const [name, setName] = useState("");
     const [price, setPrice] = useState("");
-    const [imageUrl, setImageUrl] = useState("");
+    const [image, setImage] = useState("");
 
-    const isPending = false;
+    const { toast } = useToast();
+    const queryClient = useQueryClient();
+
+    const { mutate: addProduct, isPending } = useMutation({
+        mutationKey: ["addProduct"],
+        mutationFn: async () => addProductAction({ name, image, price }),
+        onSuccess: () => {
+            queryClient.invalidateQueries({ queryKey: ["getAllProducts"] })
+            toast({
+                title: "Product uploaded successsfully",
+            });
+            setName("");
+            setImage("");
+            setPrice("");
+        },
+        onError: (error) => {
+            toast({
+                variant: "destructive",
+                title: "Error",
+                description: error.message,
+            })
+        }
+    })
 
     return (
         <>
@@ -23,7 +48,10 @@ const AddNewProductForm = () => {
                 Add <RotatedText>New</RotatedText> Product
             </p>
 
-            <form>
+            <form onSubmit={(e) => {
+                e.preventDefault();
+                addProduct();
+            }}>
                 <Card className='w-full max-w-md mx-auto'>
                     <CardHeader>
                         <CardTitle className='text-2xl'>New Merch</CardTitle>
@@ -58,7 +86,7 @@ const AddNewProductForm = () => {
                         <CldUploadWidget
                             signatureEndpoint="/api/sign-image"
                             onSuccess={(result, { widget }) => {
-                                setImageUrl((result?.info as CloudinaryUploadWidgetInfo).secure_url);
+                                setImage((result?.info as CloudinaryUploadWidgetInfo).secure_url);
                                 widget.close();
                             }}
                         >
@@ -75,13 +103,13 @@ const AddNewProductForm = () => {
                         </CldUploadWidget>
 
                         {
-                            imageUrl
+                            image
                             &&
                             (
                                 <div className='flex justify-center relative w-full h-96'>
                                     <Image
                                         fill
-                                        src={imageUrl}
+                                        src={image}
                                         alt='Product Image'
                                         className='rounded-md object-contain' />
                                 </div>
