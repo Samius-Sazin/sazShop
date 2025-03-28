@@ -32,6 +32,7 @@ model Post {
   userId    String
   likes     Int     @default(0)
   isPublic  Boolean @default(false)
+  // createdAt DateTime @default(now())
 
   comments  Comment[]
   likesList Like[]

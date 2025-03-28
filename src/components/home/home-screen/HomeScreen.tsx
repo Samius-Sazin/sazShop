@@ -1,9 +1,10 @@
-import { prisma } from "@/db/prisma";
+import { notFound } from "next/navigation";
+
 import Posts from "./Posts";
+import { prisma } from "@/db/prisma";
 import UserProfile from "./UserProfile";
 import BaseLayout from "@/components/BaseLayout";
 import { getCurrentUserAction } from "@/app/update-profile/actions";
-import { notFound } from "next/navigation";
 
 
 const HomeScreen = async () => {
@@ -12,7 +13,7 @@ const HomeScreen = async () => {
       email: process.env.ADMIN_EMAIL
     }
   });
-  
+
   const user = await getCurrentUserAction();
 
   if (!user) return notFound();
