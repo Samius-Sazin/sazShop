@@ -81,7 +81,7 @@ const Sidebar = async () => {
                     <DropdownMenuContent className='font-semibold flex flex-col gap-1 mt-2 bg-white/[0.8] dark:bg-black/[0.8]  backdrop-blur-[10]'>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator className='border border-black dark:border-white mb-2' />
-                        <Link href={"#"} className='outline-none hover:bg-primary-foreground hover:text-primary rounded-full'>
+                        <Link href={process.env.STRIPE_BILLING_PORTAL_LINK_DEV! + "?prefilled_email=" + user?.email} className='outline-none hover:bg-primary-foreground hover:text-primary rounded-full'>
                             <DropdownMenuItem className='outline-none'>Billing</DropdownMenuItem>
                         </Link>
                         <LogoutLink className='outline-none hover:bg-primary-foreground hover:text-primary rounded-full'>
