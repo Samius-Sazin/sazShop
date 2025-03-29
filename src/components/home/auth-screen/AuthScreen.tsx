@@ -30,7 +30,7 @@ const AuthScreen = () => {
                         {/* image show case */}
                         <div className='mt-24'>
                             <p className='text-2xl md:text-5xl text-center tracking-tight font-bold'>
-                                Here's <RotatedText>our farm</RotatedText>
+                                Here's our <RotatedText>collections</RotatedText>
                             </p>
 
                             <MasonryGrid />

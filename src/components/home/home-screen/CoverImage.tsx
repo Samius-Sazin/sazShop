@@ -32,8 +32,8 @@ const CoverImage = async ({ adminName }: { adminName: string }) => {
     return (
         <div className='h-44 overflow-hidden relative'>
             <Image
-                src={`/featured/featured10.jpg`}
-                alt={`Horse Cover Image`}
+                src={`/sazShop-full-logo.png`}
+                alt={`sazShop logo`}
                 className='h-full w-full object-cover select-none pointer-events-none'
                 sizes="(max-width: 168px) 100vw, 33vw"
                 priority={true}

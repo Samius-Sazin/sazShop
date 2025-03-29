@@ -18,18 +18,18 @@ const WelcomeEmail = ({
 	return (
 		<Html>
 			<Head />
-			<Preview>Welcome to OnlyHorse!</Preview>
+			<Preview>Welcome to sazShop!</Preview>
 			<Body style={main}>
 				<Container style={container}>
 					<Section style={message}>
 						<Img
-							src={`${BASE_URL}/horse-1.png`}
+							src={`${BASE_URL}/sazShop-full-logo.png`}
 							width='600'
 							height='400'
 							alt='welcome icon'
 							style={{ margin: "auto", borderRadius: 10 }}
 						/>
-						<Heading style={{ ...global.heading }}>Welcome to OnlyHorse!</Heading>
+						<Heading style={{ ...global.heading }}>Welcome to sazShop!</Heading>
 						<Text style={global.text}>Hello {userName},</Text>
 						<Text style={global.text}>
 							We're really happy to see you on our platform. We hope you have a great experience and enjoy
@@ -57,13 +57,13 @@ const WelcomeEmail = ({
 							Thanks for subscribing! We will see you in the platform. 🙂❤
 						</Text>
 						<Link href={BASE_URL} style={{ ...global.button, margin: "10px auto" }}>
-							Visit OnlyHorse
+							Visit sazSHop
 						</Link>
 					</Section>
 					<Hr style={global.hr} />
 					<Section style={global.defaultPadding}>
 						<Text style={footer.text}>
-							© {new Date().getFullYear()} OnlyHorse, Inc. All Rights Reserved.
+							© {new Date().getFullYear()} sazShop, Inc. All Rights Reserved.
 						</Text>
 					</Section>
 				</Container>

@@ -97,7 +97,7 @@ export const POST = async (req: Request) => {
 
                             if (process.env.NODE_ENV !== "production") {
                                 await resend.emails.send({
-                                    from: "OnlyHorse <onboarding@resend.dev>",
+                                    from: "sazShop <onboarding@resend.dev>",
                                     to: [customerDetails.email],
                                     subject: "Subscription Confirmation",
                                     react: WelcomeEmail({
@@ -141,7 +141,7 @@ export const POST = async (req: Request) => {
                             // send a success email to the user
                             if (process.env.NODE_ENV !== "production") {
                                 await resend.emails.send({
-                                    from: "OnlyHorse <onboarding@resend.dev>",
+                                    from: "sazShop <onboarding@resend.dev>",
                                     to: [customerDetails.email],
                                     subject: "Order Confirmation",
                                     react: ReceiptEmail({
@@ -184,13 +184,13 @@ export const POST = async (req: Request) => {
                 }
                 break;
 
-            // case "checkout.session.expired": {
-            //     const session = await stripe.checkout.sessions.retrieve((event.data.object as Stripe.Checkout.Session).id);
-            //     await prisma.order.delete({
-            //         where: { id: session.metadata!.orderId },
-            //     });
-            //     break;
-            // }
+            case "checkout.session.expired": {
+                const session = await stripe.checkout.sessions.retrieve((event.data.object as Stripe.Checkout.Session).id);
+                await prisma.order.delete({
+                    where: { id: session.metadata!.orderId },
+                });
+                break;
+            }
 
             default:
                 console.warn(`Unhandled event type: ${event.type}`);

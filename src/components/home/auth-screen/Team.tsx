@@ -17,28 +17,28 @@ interface TeamProps {
 
 const teamList: TeamProps[] = [
     {
-        imageUrl: "https://i.pravatar.cc/150?img=35",
-        name: "Sarah Thompson",
-        position: "Farm Manager",
-        description: "Sarah ensures the smooth operation of the farm and ensuring the well-being of all our horses. ",
+        imageUrl: "https://avatars.githubusercontent.com/u/68127599?v=4",
+        name: "Samius Sazin",
+        position: "Founder & CEO",
+        description: "Sazin leads sazShop with a vision to provide the best online shopping experience with top-quality products.",
     },
     {
         imageUrl: "https://i.pravatar.cc/150?img=60",
-        name: "James Wilson",
-        position: "Head Trainer",
-        description: "James is our expert in horse training and riding instruction with over 15 years of experience",
+        name: "Tanvir Hossain",
+        position: "Marketing Manager",
+        description: "Tanvir oversees all marketing strategies, ensuring sazShop reaches the right customers with great deals.",
     },
     {
         imageUrl: "https://i.pravatar.cc/150?img=36",
-        name: "Dr. Emily Carter",
-        position: "Equine Veterinarian",
-        description: "Dr. Carter is our resident veterinarian, dedicated to maintaining the health of our horses.",
+        name: "Nusrat Jahan",
+        position: "Head of Operations",
+        description: "Nusrat manages logistics and operations, ensuring fast shipping and smooth order fulfillment.",
     },
     {
         imageUrl: "https://i.pravatar.cc/150?img=17",
-        name: "Michael Ramirez",
-        position: "Groom and Stable Hand",
-        description: "Michael is responsible for the daily care of our horses, including feeding and grooming. ",
+        name: "Rakib Hasan",
+        position: "Customer Support Lead",
+        description: "Rakib ensures top-notch customer service, helping shoppers with queries and order assistance.",
     },
 ];
 
@@ -50,7 +50,7 @@ const Team = () => {
             </h2>
 
             <p className='mt-4 mb-10 text-md md:text-xl text-muted-foreground text-center'>
-                Meet the team that makes our farm a special place for horses and riders alike.
+                Meet the team that makes our platform a unique destination for shoppers and sellers alike.
             </p>
 
             <div className='grid md:grid-cols-2 lg:grid-cols-4 gap-8 gap-y-10'>

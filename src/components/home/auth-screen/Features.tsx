@@ -18,32 +18,32 @@ interface FeatureProps {
 
 const features: FeatureProps[] = [
   {
-    title: "Expert Horse Care Tips",
+    title: "Exclusive Deals & Discounts",
     description:
-      "Learn the best practices for keeping your horses healthy and happy. From nutrition advice to grooming.",
+      "Get the best prices on top-quality products with our exclusive offers and limited-time discounts.",
     image: "/gifs/gif1.gif",
   },
   {
-    title: "Riding Techniques",
+    title: "Seamless Shopping Experience",
     description:
-      "Enhance your riding skills with our detailed tutorials. Whether you're into dressage, jumping, or just casual riding, find techniques in seconds.",
+      "Enjoy a smooth and secure shopping experience with fast checkout, multiple payment options, and easy navigation.",
     image: "/gifs/gif2.gif",
   },
   {
-    title: "Daily Farm Life",
-    description: "See how we care for our horses, manage the farm, and enjoy the beauty of nature.",
+    title: "Trending & Best-Selling Products",
+    description: "Stay ahead with the latest trends and explore our best-selling products loved by customers.",
     image: "/gifs/gif3.gif",
   },
 ];
 
 const featureLists: string[] = [
-  "Horse Health Insights",
-  "Daily Tips",
-  "Behind-the-Scenes Access",
-  "Training Tutorials",
-  "Riding Techniques",
-  "Horse Care Advice",
+  "Exclusive Deals & Discounts",
+  "Trending Products",
+  "Fast & Secure Checkout",
+  "Personalized Recommendations",
+  "24/7 Customer Support",
 ];
+
 
 const Features = () => {
   return (
