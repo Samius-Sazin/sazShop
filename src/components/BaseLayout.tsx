@@ -19,16 +19,16 @@ const BaseLayout = async ({
     }
 
     return (
-        <div className="flex justify-between max-w-2xl lg:max-w-[80%] mx-auto relative">
-            <div className="w-[10%]">
+        <div className="flex justify-between max-w-2xl lg:max-w-[90%] mx-auto relative">
+            <div className="w-[15%]">
                 <Sidebar />
             </div>
 
-            <div className="w-full lg:w-[45%] flex flex-col border-x">
+            <div className="w-full lg:w-[full] flex flex-col border-x">
                 {children}
             </div>
 
-            <div className="w-[35%]">
+            <div className="w-[50%]">
                 {
                     renderRightPanel
                     &&

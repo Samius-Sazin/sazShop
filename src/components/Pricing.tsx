@@ -39,8 +39,8 @@ export const tiers: PricingTier[] = [
     {
         name: "Premium Plan",
         id: "0",
-        price: { "1": "$89", "2": "$999" },
-        discountPrice: { "1": "$59", "2": "$499" },
+        price: { "1": "$59", "2": "$699" },
+        discountPrice: { "1": "$49", "2": "$499" },
         description: `Get access to our exclusive content. Cancel anytime.`,
         features: [`Access to all premium content`, "Comment your thoughts", "Like your favorite posts"],
         cta: `Join Us`,
@@ -208,7 +208,7 @@ export default function Pricing() {
                                             }
                                         }}
                                     >
-                                        <Link href={"/api/auth/login"}>{tier.cta}</Link>
+                                        <Link href={"/api/auth/login"} target="_blank">{tier.cta}</Link>
                                     </Button>
                                 </div>
                             </div>

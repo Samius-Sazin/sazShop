@@ -102,15 +102,15 @@ model Order {
   id                String   @id @default(cuid())
   userId            String
   productId         String
-  shippingAddressId String?
-  price             Int
-  isPaid            Boolean  @default(false)
   size              String
+  price             Int
+  shippingAddressId String?
+  isPaid            Boolean  @default(false)
   orderDate         DateTime @default(now())
 
   user            User             @relation(fields: [userId], references: [id])
   product         Product          @relation(fields: [productId], references: [id])
-  ShippingAddress ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
+  shippingAddress ShippingAddress? @relation(fields: [shippingAddressId], references: [id])
 
   @@index([userId])
   @@index([productId])
