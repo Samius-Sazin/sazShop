@@ -78,7 +78,7 @@ const Sidebar = async () => {
                         <span className='hidden lg:block'>Settings</span>
                     </DropdownMenuTrigger>
 
-                    <DropdownMenuContent className='font-semibold flex flex-col gap-1 mt-2 bg-white/[0.8] dark:bg-black/[0.8]  backdrop-blur-[10]'>
+                    <DropdownMenuContent className='font-semibold flex flex-col gap-1 mt-2 bg-white/[0.9] dark:bg-black/[1] dark:border-neutral-600 border-neutral-400 border ml-4 md:ml-0 py-1 px-2 text-sm md:text-base rounded-md backdrop-blur-[10]'>
                         <DropdownMenuLabel>My Account</DropdownMenuLabel>
                         <DropdownMenuSeparator className='border border-black dark:border-white mb-2' />
                         <Link href={process.env.STRIPE_BILLING_PORTAL_LINK_DEV! + "?prefilled_email=" + user?.email} className='outline-none hover:bg-primary-foreground hover:text-primary rounded-full'>

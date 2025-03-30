@@ -28,7 +28,7 @@ const BaseLayout = async ({
                 {children}
             </div>
 
-            <div className="w-[50%]">
+            <div className="lg:w-[50%]">
                 {
                     renderRightPanel
                     &&
